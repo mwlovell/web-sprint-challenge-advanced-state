@@ -11,18 +11,28 @@ function wheel(state = initialWheelState, action) {
           ...state,
           counter: state.counter - 1,
         };
-      }else{
+      } else {
         return {
-          ...state,
-          counter: 5,
+            ...state,
+            counter: 5,
         };
-      }
-      default:
-        return state;
-  
     }
-  }
-
+case type.MOVE_COUNTERCLOCKWISE:
+    if (state.counter <= 4) {
+        return {
+            ...state,
+            counter: state.counter + 1,
+        };
+    } else {
+        return {
+            ...state,
+            counter: 0,
+        };
+    }
+default:
+    return state;
+}
+}
 const initialQuizState = null
 function quiz(state = initialQuizState, action) {
   return state
