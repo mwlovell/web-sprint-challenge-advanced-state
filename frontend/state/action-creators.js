@@ -5,25 +5,23 @@ import axios from 'axios'
 export function moveClockwise(value) {
   return { type: type.MOVE_CLOCKWISE, payload: value };
 };
-
 export function moveCounterClockwise() {
   return { type: type.MOVE_COUNTERCLOCKWISE };
 }
-
 export function selectAnswer(answerId) {
   return { type: type.SET_SELECTED_ANSWER, payload: answerId };
 }
-
-export function setMessage() {
+export function setMessage(message) {
+  return { type: type.SET_INFO_MESSAGE, payload: message };
 }
-
 export function setQuiz(question) {
   return { type: type.SET_QUIZ_INTO_STATE, payload: question };
 }
-export function inputChange() {
+export function inputChange(input) {
+  return { type: type.INPUT_CHANGE, payload: input };
 }
-
 export function resetForm() {
+  return { type: type.RESET_FORM };
 }
 
 // ❗ Async action creators

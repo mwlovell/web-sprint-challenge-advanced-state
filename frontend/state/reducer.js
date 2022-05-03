@@ -6,22 +6,35 @@ const initialWheelState = { counter:0 }
 function wheel(state = initialWheelState, action) {
   switch (action.type) {
     case type.MOVE_CLOCKWISE:
-      if(state.counter >= 1) {
-        return {
-          ...state,
-          counter: state.counter - 1,
-        };
-      }else{
-        return {
-          ...state,
-          counter: 5,
-        };
-      }
-      default:
+        if (state.counter >= 1) {
+            return {
+                ...state,
+                counter: state.counter - 1,
+            };
+        } else {
+            return {
+                ...state,
+                counter: 5,
+            };
+        }
+    case type.MOVE_COUNTERCLOCKWISE:
+        if (state.counter <= 4) {
+            return {
+                ...state,
+                counter: state.counter + 1,
+            };
+        } else {
+            return {
+                ...state,
+                counter: 0,
+            };
+        }
+    default:
         return state;
-  
-    }
-  }
+}
+}
+
+      
 
   const initialQuizState = '';
   function quiz(state = initialQuizState, action) {
@@ -75,5 +88,5 @@ function wheel(state = initialWheelState, action) {
               return state;
       }
   }
-  
-  export default combineReducers({ wheel, quiz, selectedAnswer, infoMessage, form });
+
+  export default combineReducers({ wheel, quiz, selectedAnswer, infoMessage, form })
